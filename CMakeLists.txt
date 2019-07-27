@@ -1,5 +1,5 @@
 cmake_minimum_required(VERSION 2.8.3)
-project(ros_calibrate)
+project(RosCalibration)
 
 find_package(catkin REQUIRED COMPONENTS
   cv_bridge 
@@ -21,13 +21,13 @@ generate_messages(
 include_directories(include ${catkin_INCLUDE_DIRS} ${OpenCV_INCLUDE_DIRS})
 find_package(OpenCV REQUIRED)
 catkin_package(
-  LIBRARIES ros_calibrate
+  LIBRARIES RosCalibration
   CATKIN_DEPENDS message_runtime nodelet cv_bridge roscpp std_msgs geometry_msgs 
 )
 add_executable(Imgpub src/Imgpub.cpp)
 
 target_link_libraries(Imgpub ${catkin_LIBRARIES} ${OpenCV_LIBS})
-add_dependencies(Imgpub ros_calibrate_generate_messages_cpp)
+add_dependencies(Imgpub RosCalibration_generate_messages_cpp)
 
 
 
